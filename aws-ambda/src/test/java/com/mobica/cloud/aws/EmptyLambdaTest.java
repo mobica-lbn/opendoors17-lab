@@ -29,7 +29,7 @@ public class EmptyLambdaTest {
 	private LambdaLogger lambdaLogger;
 
 	@InjectMocks
-	private EmptyLambda lambda = new EmptyLambda();
+	private EmptyLambda lambda;
 
 	@Before
 	public void setUp() {
@@ -38,7 +38,7 @@ public class EmptyLambdaTest {
 
 	@Test
 	public void testEmptyLambdaWithNull() {
-		final String response = lambda.handleRequest(null, context);
+		final Object response = lambda.handleRequest(null, context);
 
 		assertNull(response);
 		verify(lambdaLogger).log("Execute emptyLambda with parameter: null");
@@ -46,19 +46,17 @@ public class EmptyLambdaTest {
 
 	@Test
 	public void testEmptyLambdaWithEmpty() {
-		final String response = lambda.handleRequest("", context);
+		final Object response = lambda.handleRequest("", context);
 
-		assertNotNull(response);
-		assertEquals("", response);
+		assertNull(response);
 		verify(lambdaLogger).log("Execute emptyLambda with parameter: ");
 	}
 
 	@Test
 	public void testEmptyLambdaWithString() {
-		final String response = lambda.handleRequest("any string", context);
+		final Object response = lambda.handleRequest("anyString", context);
 
-		assertNotNull(response);
-		assertEquals("any string", response);
-		verify(lambdaLogger).log("Execute emptyLambda with parameter: any string");
+		assertNull(response);
+		verify(lambdaLogger).log("Execute emptyLambda with parameter: anyString");
 	}
 }

@@ -67,12 +67,6 @@
 						<filter>
 							<artifact>*:*</artifact>
 							<excludes>
-								<exclude>*.csv</exclude>
-							</excludes>
-						</filter>
-						<filter>
-							<artifact>*:*</artifact>
-							<excludes>
 								<exclude>mozilla/*</exclude>
 							</excludes>
 						</filter>
