@@ -1,0 +1,64 @@
+package com.mobica.cloud.aws;
+
+import com.amazonaws.services.lambda.runtime.Context;
+import com.amazonaws.services.lambda.runtime.LambdaLogger;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.runners.MockitoJUnitRunner;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
+
+/**
+ * Tests for {@link EmptyLambda}
+ */
+@RunWith(MockitoJUnitRunner.class)
+public class EmptyLambdaTest {
+
+	@Mock
+	private Context context;
+
+	@Mock
+	private LambdaLogger lambdaLogger;
+
+	@InjectMocks
+	private EmptyLambda lambda = new EmptyLambda();
+
+	@Before
+	public void setUp() {
+		when(context.getLogger()).thenReturn(lambdaLogger);
+	}
+
+	@Test
+	public void testEmptyLambdaWithNull() {
+		final String response = lambda.handleRequest(null, context);
+
+		assertNull(response);
+		verify(lambdaLogger).log("Execute emptyLambda with parameter: null");
+	}
+
+	@Test
+	public void testEmptyLambdaWithEmpty() {
+		final String response = lambda.handleRequest("", context);
+
+		assertNotNull(response);
+		assertEquals("", response);
+		verify(lambdaLogger).log("Execute emptyLambda with parameter: ");
+	}
+
+	@Test
+	public void testEmptyLambdaWithString() {
+		final String response = lambda.handleRequest("any string", context);
+
+		assertNotNull(response);
+		assertEquals("any string", response);
+		verify(lambdaLogger).log("Execute emptyLambda with parameter: any string");
+	}
+}
