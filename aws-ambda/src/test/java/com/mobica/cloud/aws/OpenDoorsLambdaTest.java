@@ -86,7 +86,7 @@ public class OpenDoorsLambdaTest {
 	private S3Object s3Object;
 
 	@InjectMocks
-	private OpenDoorsLambda lambda = new OpenDoorsLambda();
+	private OpenDoorsLambda lambda;
 
 	@Before
 	public void setUp() throws Exception {
