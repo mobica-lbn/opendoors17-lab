@@ -47,6 +47,7 @@ java -jar mobica-aws-s3-0.1.0.jar
 ## AWS Lambda serverless
 
 ### The goal:
+Implement simple AWS server lambda code
 
 ### Steps to do:
 
