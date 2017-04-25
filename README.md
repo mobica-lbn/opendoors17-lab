@@ -31,13 +31,18 @@ AWS_SECRET_ACCESS_KEY=xxxxx
 AWS_REGION=us-east-1
 ```
 Where xxxxx it proper secret values for each Amazon account.
+
 5. In directory src\main\java\hello in AWSController.java is missing some lines.
-Missing lines are marked as TODO. 
-    1. Go to line 43. In this line you need new S3Object which can return function getObject from AmazonS3. Function getObject needs new GetObjectRequest where in constructor you should pass bucket name and file name.
-    2. Go to line 70. You should use there function deleteObject from AmazonS3, pass  bucket name and file name.
-    3. Go to line 92. Here you need object of ObjectListing which return function listObjects from AmazonS3. As parameter type “new ListObjectsRequest().withBucketName(bucketName)”
-    4. Go to line 127. You should use there function putObject from AmazonS3, pass  new object PutObjectRequest as parameter. PutObjectRequest’s constructor needs bucket name, string key to write / found file in bucket and file to upload. 
+Missing lines are marked as TODO.
+* Go to line 43. In this line you need new S3Object which can return function getObject from AmazonS3. Function getObject needs new GetObjectRequest where in constructor you should pass bucket name and file name.
+* Go to line 70. You should use there function deleteObject from AmazonS3, pass  bucket name and file name.
+* Go to line 92. Here you need object of ObjectListing which return function listObjects from AmazonS3. As parameter type “new ListObjectsRequest().withBucketName(bucketName)”
+* Go to line 127. You should use there function putObject from AmazonS3, pass  new object PutObjectRequest as parameter. PutObjectRequest’s constructor needs bucket name, string key to write / found file in bucket and file to upload.
+    
 6. If you did all instructions from TODO comments then run command mvn clean install from directory which contain file pom.xml.
+```bash
+mvn clean installt
+```
 7. Go to directory target and run application by command
 ```bash
 java -jar mobica-aws-s3-0.1.0.jar
