@@ -30,7 +30,7 @@ AWS_ACCESS_KEY_ID=xxxxx
 AWS_SECRET_ACCESS_KEY=xxxxx
 AWS_REGION=us-east-1
 ```
-Where xxxxx it proper secret values for each Amazon account.
+ Where xxxxx it proper secret values for each Amazon account.
 
 5. In directory src\main\java\hello in AWSController.java is missing some lines.
 Missing lines are marked as TODO.
@@ -41,7 +41,7 @@ Missing lines are marked as TODO.
     
 6. If you did all instructions from TODO comments then run command mvn clean install from directory which contain file pom.xml.
 ```bash
-mvn clean installt
+mvn clean install
 ```
 7. Go to directory target and run application by command
 ```bash
