@@ -13,11 +13,11 @@ import com.amazonaws.services.dynamodbv2.document.DynamoDB;
 @Configuration
 public class DynamoDBConfiguration {
 
-  @Value("${aws.key}")
+  @Value("${AWS_ACCESS_KEY_ID}")
   private String key;
-  @Value("${aws.secret}")
+  @Value("${AWS_SECRET_ACCESS_KEY}")
   private String secret;
-  @Value("${aws.region}")
+  @Value("${AWS_REGION}")
   private String region;
 
   @Bean
