@@ -19,7 +19,7 @@ public class DynamoDBApplicationTests {
 
   @Test
   public void getItem() {
-    assertNotNull(service.findById(-1));
+    assertNotNull(service.findById(1));
   }
 
   @Test
@@ -29,7 +29,7 @@ public class DynamoDBApplicationTests {
 
   @Test
   public void getAttribute() {
-    assertTrue(service.findById(-1).hasAttribute("title"));
+    assertTrue(service.findById(1).hasAttribute("title"));
   }
 
   @Test
