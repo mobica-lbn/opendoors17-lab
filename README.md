@@ -30,7 +30,7 @@ AWS_ACCESS_KEY_ID=xxxxx
 AWS_SECRET_ACCESS_KEY=xxxxx
 AWS_REGION=us-east-1
 ```
- Where xxxxx it proper secret values for each Amazon account.
+ Where xxxxx are proper secret values for each Amazon account.
 
 5. In directory src\main\java\hello in AWSController.java is missing some lines.
 Missing lines are marked as TODO.
