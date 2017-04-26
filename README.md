@@ -19,9 +19,9 @@ Build endpoint that obtains file and stores this file in AWS S3 storage.
 ```bash
 git clone https://github.com/mobica-lbn/opendoors17-lab.git
 ```
-2. Checkout branch for S3
+2. Checkout go to directory aws-s3
 ```bash
-git checkout aws-s3
+cd aws-s3
 ```
 3. Go to directory src\main\resources and create file with name application.properties
 4. Open file application.properties and to them lines:
