@@ -11,6 +11,6 @@ public class RequestResponseLambda implements RequestHandler<MyRequest, MyRespon
 	public MyResponse handleRequest(MyRequest request, Context context) {
 		final String key = request != null ? request.getKey() : "null";
 		final String val = request != null ? request.getVal() : "null";
-		return new MyResponse(format("[%s]->[%s]", key, val));
+		return new MyResponse(format("%s=%s", key, val));
 	}
 }

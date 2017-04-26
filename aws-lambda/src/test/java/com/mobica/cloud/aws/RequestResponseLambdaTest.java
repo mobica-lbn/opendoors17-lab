@@ -10,6 +10,9 @@ import org.mockito.runners.MockitoJUnitRunner;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
+/**
+ * Tests for {@link RequestResponseLambda}
+ */
 @RunWith(MockitoJUnitRunner.class)
 public class RequestResponseLambdaTest {
 
@@ -24,7 +27,7 @@ public class RequestResponseLambdaTest {
 		final MyResponse response = lambda.handleRequest(null, context);
 
 		assertNotNull(response);
-		assertTrue(new MyResponse("[null]->[null]").equals(response));
+		assertTrue(new MyResponse("null=null").equals(response));
 	}
 
 	@Test
@@ -32,7 +35,7 @@ public class RequestResponseLambdaTest {
 		final MyResponse response = lambda.handleRequest(new MyRequest(), context);
 
 		assertNotNull(response);
-		assertTrue(new MyResponse("[null]->[null]").equals(response));
+		assertTrue(new MyResponse("null=null").equals(response));
 	}
 
 	@Test
@@ -40,7 +43,7 @@ public class RequestResponseLambdaTest {
 		final MyResponse response = lambda.handleRequest(new MyRequest("myKey", "myValue"), context);
 
 		assertNotNull(response);
-		assertTrue(new MyResponse("[myKey]->[myValue]").equals(response));
+		assertTrue(new MyResponse("myKey=myValue").equals(response));
 	}
 
 }

@@ -12,7 +12,7 @@ public class EmptyLambda implements RequestHandler<Object, Object> {
 
     @Override
     public Object handleRequest(Object in, Context context) {
-        context.getLogger().log(format("Execute emptyLambda with parameter: %s", in));
+        context.getLogger().log(format("Execute emptyLambda: %s", System.currentTimeMillis()));
         return null;
     }
 
