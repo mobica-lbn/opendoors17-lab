@@ -15,9 +15,9 @@ Required environment:
 Build endpoint that obtains file and stores this file in AWS S3 storage.
 
 ### Step to do:
-1. Clone application template from: https://github.com/mobica-lbn/opendoors17-aws.git
+1. Clone application template from: https://github.com/mobica-lbn/opendoors17-lab.git
 ```bash
-git clone https://github.com/mobica-lbn/opendoors17-aws.git
+git clone https://github.com/mobica-lbn/opendoors17-lab.git
 ```
 2. Checkout branch for S3
 ```bash
