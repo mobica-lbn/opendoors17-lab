@@ -129,7 +129,7 @@ Implement two methods in **DynamoDBServiceImpl** to read from DynamoDB using AWS
 
 ### Endpoints:
 * http://localhost:8080/id/{id}
-* http://localhost:8080/id/all
+* http://localhost:8080/all
 
 
 ### Know-how:
