@@ -10,6 +10,7 @@ import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import static org.junit.Assert.assertNull;
+import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -38,7 +39,7 @@ public class EmptyLambdaTest {
 		final Object response = lambda.handleRequest(null, context);
 
 		assertNull(response);
-		verify(lambdaLogger).log("Execute emptyLambda with parameter: null");
+		verify(lambdaLogger).log(anyString());
 	}
 
 	@Test
@@ -46,7 +47,7 @@ public class EmptyLambdaTest {
 		final Object response = lambda.handleRequest("", context);
 
 		assertNull(response);
-		verify(lambdaLogger).log("Execute emptyLambda with parameter: ");
+		verify(lambdaLogger).log(anyString());
 	}
 
 	@Test
@@ -54,6 +55,6 @@ public class EmptyLambdaTest {
 		final Object response = lambda.handleRequest("anyString", context);
 
 		assertNull(response);
-		verify(lambdaLogger).log("Execute emptyLambda with parameter: anyString");
+		verify(lambdaLogger).log(anyString());
 	}
 }

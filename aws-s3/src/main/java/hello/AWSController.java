@@ -57,31 +57,6 @@ public class AWSController {
         return "uploadForm";
     }
     
-    @GetMapping("/delete/{filename:.+}")
-    public String deleteFile(@PathVariable String filename, Model model) {
-    	String response = "Error";
-    	
-        if (filename.substring(filename.length() - 3).compareToIgnoreCase("csv") != 0) {
-           response = "You can delete only file with csv extension!";
-        }
-        else 
-        {
-			try {
-				// TODO Use amazonS3.deleteObject
-	            response = "File '" + filename + "' deleted from S3";
-			} catch (AmazonServiceException ase) {
-				response = printAWSException(ase);
-			} catch (AmazonClientException ace) {
-				response = printAWSClientException(ace);
-			}
-        }
-
-		System.out.println(response);
-		System.out.println();
-        model.addAttribute("message", response);
-        return "uploadForm";
-    }
-    
 	private static String displayTextInputStream(InputStream input) throws IOException {
         return IOUtils.toString(input);
 	}

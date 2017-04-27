@@ -15,13 +15,13 @@ Required environment:
 Build endpoint that obtains file and stores this file in AWS S3 storage.
 
 ### Step to do:
-1. Clone application template from: https://github.com/mobica-lbn/opendoors17-aws.git
+1. Clone application template from: https://github.com/mobica-lbn/opendoors17-lab.git
 ```bash
-git clone https://github.com/mobica-lbn/opendoors17-aws.git
+git clone https://github.com/mobica-lbn/opendoors17-lab.git
 ```
-2. Checkout branch for S3
+2. Checkout go to directory aws-s3
 ```bash
-git checkout aws-s3
+cd aws-s3
 ```
 3. Go to directory src\main\resources and create file with name application.properties
 4. Open file application.properties and to them lines:
@@ -30,14 +30,13 @@ AWS_ACCESS_KEY_ID=xxxxx
 AWS_SECRET_ACCESS_KEY=xxxxx
 AWS_REGION=us-east-1
 ```
- Where xxxxx it proper secret values for each Amazon account.
+ Where xxxxx are proper secret values for each Amazon account.
 
 5. In directory src\main\java\hello in AWSController.java is missing some lines.
 Missing lines are marked as TODO.
 * Go to line 43. In this line you need new S3Object which can return function getObject from AmazonS3. Function getObject needs new GetObjectRequest where in constructor you should pass bucket name and file name.
-* Go to line 70. You should use there function deleteObject from AmazonS3, pass  bucket name and file name.
-* Go to line 92. Here you need object of ObjectListing which return function listObjects from AmazonS3. As parameter type “new ListObjectsRequest().withBucketName(bucketName)”
-* Go to line 127. You should use there function putObject from AmazonS3, pass  new object PutObjectRequest as parameter. PutObjectRequest’s constructor needs bucket name, string key to write / found file in bucket and file to upload.
+* Go to line 67. Here you need object of ObjectListing which return function listObjects from AmazonS3. As parameter type “new ListObjectsRequest().withBucketName(bucketName)”
+* Go to line 102. You should use there function putObject from AmazonS3, pass  new object PutObjectRequest as parameter. PutObjectRequest’s constructor needs bucket name, string key to write / found file in bucket and file to upload.
     
 6. If you did all instructions from TODO comments then run command mvn clean install from directory which contain file pom.xml.
 ```bash
