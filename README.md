@@ -19,7 +19,7 @@ Build endpoint that obtains file and stores this file in AWS S3 storage.
 ```bash
 git clone https://github.com/mobica-lbn/opendoors17-lab.git
 ```
-2. Checkout go to directory aws-s3
+2. Go to directory aws-s3
 ```bash
 cd aws-s3
 ```
