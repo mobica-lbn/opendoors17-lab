@@ -33,7 +33,9 @@ public class S3Service {
 
 
     public Optional<String> getFileContent(String filename) {
-        try (S3Object objectPortion = amazonS3.getObject(new GetObjectRequest(BUCKET_NAME, filename))) {
+
+        // TODO Create object of S3Object by use amazonS3.getObject and GetObjectRequest
+        try (S3Object objectPortion /* = */) {
             return Optional.of(IOUtils.toString(objectPortion.getObjectContent()));
         } catch (IOException ex) {
             return Optional.empty();
@@ -41,7 +43,9 @@ public class S3Service {
     }
 
     public List<String> getAllFiles() {
-        ObjectListing objectListing = amazonS3.listObjects(new ListObjectsRequest().withBucketName(BUCKET_NAME));
+
+        // TODO Create object of ObjectListing by use amazonS3.listObjects
+        ObjectListing objectListing /* = */;
         return objectListing.getObjectSummaries()
                 .stream()
                 .map(S3ObjectSummary::getKey)
@@ -49,14 +53,13 @@ public class S3Service {
     }
 
     public void saveFile(MultipartFile multipart) throws IOException {
-        String filename = multipart.getOriginalFilename();
-        Path write = Files.write(Paths.get(filename), multipart.getBytes());
-        File file = write.toFile();
+        String fileName = multipart.getOriginalFilename();
+        Path write = Files.write(Paths.get(fileName), multipart.getBytes());
+        File fileToUpload = write.toFile();
 
-        // Upload file
-        amazonS3.putObject(new PutObjectRequest(BUCKET_NAME, filename, file));
+        // TODO Use amazonS3.putObject with new PutObjectRequest
 
-        file.delete();
+        fileToUpload.delete();
     }
 
 }
