@@ -44,7 +44,7 @@ public class AWSController {
 
         try {
             s3Service.saveFile(multipart);
-        } catch (IOException e) {
+        } catch (Exception e) {
             response = "Error";
         }
 

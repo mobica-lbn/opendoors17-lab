@@ -37,7 +37,7 @@ public class S3Service {
         // TODO Create object of S3Object by use amazonS3.getObject and GetObjectRequest
         try (S3Object objectPortion /* = */) {
             return Optional.of(IOUtils.toString(objectPortion.getObjectContent()));
-        } catch (IOException ex) {
+        } catch (Exception ex) {
             return Optional.empty();
         }
     }
